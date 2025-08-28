@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Core colors */
+    --background: 0 0% 100%;
+    --foreground: 220 13% 18%;
+
+    /* Brand colors - Modern tech blue to purple gradient */
+    --primary: 237 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 250 100% 75%;
+
+    /* Secondary palette */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 18%;
+
+    /* Accent colors */
+    --accent: 237 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Neutral tones */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* UI elements */
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 237 100% 60%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(237 100% 60%), hsl(250 100% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(237 100% 60%) 0%, hsl(250 100% 75%) 50%, hsl(270 100% 80%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.8), hsl(220 14% 96% / 0.4));
+    --gradient-hero-bg: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(237 100% 98%) 50%, hsl(250 100% 95%) 100%);
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 40px -15px hsl(237 100% 60% / 0.3);
+    --shadow-card: 0 4px 20px -8px hsl(220 13% 18% / 0.1);
+    --shadow-glow: 0 0 40px hsl(237 100% 60% / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .dark {
+    /* Core colors */
+    --background: 220 27% 8%;
+    --foreground: 220 14% 96%;
+
+    /* Brand colors maintain consistency */
+    --primary: 237 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 250 100% 75%;
+
+    /* Secondary palette for dark mode */
+    --secondary: 220 20% 14%;
+    --secondary-foreground: 220 14% 96%;
+
+    /* Accent colors */
+    --accent: 237 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Neutral tones */
+    --muted: 220 20% 14%;
+    --muted-foreground: 220 9% 65%;
+
+    /* UI elements */
+    --card: 220 24% 10%;
+    --card-foreground: 220 14% 96%;
+    
+    --popover: 220 24% 10%;
+    --popover-foreground: 220 14% 96%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 237 100% 60%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Custom design tokens for dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(237 100% 60%), hsl(250 100% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(237 100% 60%) 0%, hsl(250 100% 75%) 50%, hsl(270 100% 80%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 24% 10% / 0.8), hsl(220 20% 14% / 0.4));
+    
+    /* Shadows for dark mode */
+    --shadow-elegant: 0 10px 40px -15px hsl(237 100% 60% / 0.5);
+    --shadow-card: 0 4px 20px -8px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 40px hsl(237 100% 60% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+}
+
+@layer components {
+  /* Hero text gradient */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Floating animation */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Glow effect */
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--border) / 0.2);
+  }
+}
