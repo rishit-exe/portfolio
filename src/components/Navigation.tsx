@@ -17,7 +17,7 @@ export const Navigation = () => {
   const navItems = [
     { href: "#about", label: "About" },
     { href: "#experience", label: "Experience" },
-    { href: "#projects", label: "Projects" },
+    // { href: "#projects", label: "Projects" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -32,12 +32,18 @@ export const Navigation = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <button 
-            onClick={scrollToTop}
-            className="text-2xl font-bold text-gradient hover:scale-105 transition-transform"
-          >
-            Rishit
-          </button>
+<button 
+  onClick={scrollToTop}
+  className="flex items-center text-2xl font-bold text-gradient hover:scale-105 transition-transform"
+>
+  <img
+    src="favicon-black.ico"
+    alt="Logo"
+    className="w-8 h-8 rounded-full align-middle"
+    style={{ marginRight: 0, padding: 0 }}
+  />
+  ishit
+</button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

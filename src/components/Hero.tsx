@@ -37,13 +37,35 @@ export const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button variant="hero" size="xl" className="group">
+            {/* <Button variant="hero" size="xl" className="group">
               View My Work
               <ArrowDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
-            </Button>
-            <Button variant="glass" size="xl">
+            </Button> */}
+            <Button
+  variant="hero"
+  size="xl"
+  className="group"
+  onClick={() => {
+    const section = document.getElementById("experience");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  View My Work
+  <ArrowDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
+</Button>
+            {/* <Button variant="glass" size="xl">
               Get In Touch
-            </Button>
+            </Button> */}
+            <Button
+  variant="glass"
+  size="xl"
+  onClick={() => {
+    const section = document.getElementById("contact");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  Get In Touch
+</Button>
           </div>
 
           <div className="flex gap-6 justify-center">

@@ -47,9 +47,9 @@ export const Footer = () => {
 
           {/* Copyright */}
           <div className="text-center md:text-right">
-            <p className="text-muted-foreground flex items-center justify-center md:justify-end">
+            {/* <p className="text-muted-foreground flex items-center justify-center md:justify-end">
               Made with <Heart className="w-4 h-4 mx-1 text-red-500" /> by Rishit
-            </p>
+            </p> */}
             <p className="text-sm text-muted-foreground/70 mt-1">
               © 2024 All rights reserved
             </p>
@@ -57,7 +57,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-8 border-t border-border/20">
+        {/* <div className="mt-8 pt-8 border-t border-border/20">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p className="text-sm text-muted-foreground">
               Built with React, TypeScript, and Tailwind CSS
@@ -71,7 +71,7 @@ export const Footer = () => {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

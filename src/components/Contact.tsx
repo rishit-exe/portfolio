@@ -16,16 +16,37 @@ export const Contact = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate form submission
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon!",
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    const response = await fetch("https://formspree.io/f/meolajgp", { // <-- replace with your Formspree endpoint
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
     });
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
 
+    if (response.ok) {
+      toast({
+        title: "Message sent!",
+        description: "Thank you for your message. I'll get back to you soon!",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } else {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+      });
+    }
+  } catch (error) {
+    toast({
+      title: "Error",
+      description: "Something went wrong. Please try again later.",
+    });
+  }
+};
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
