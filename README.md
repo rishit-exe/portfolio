@@ -2,6 +2,14 @@
 
 ![Portfolio Homepage](live-pic.png)
 
+## 🌐 Live Demo
+
+**[🔗 View Live Portfolio](https://rishit-exe.github.io/portfolio/)**
+
+> Experience the portfolio in action! Click the link above to explore the live website.
+
+---
+
 A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS, showcasing my skills, projects, and professional experience.
 
 ## ✨ Features
