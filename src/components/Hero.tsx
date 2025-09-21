@@ -40,9 +40,19 @@ export const Hero = () => {
           </p>
 
           <p className="text-lg md:text-xl text-muted-foreground/80 mb-12 max-w-3xl mx-auto">
-            Currently pursuing BTech in Computer Science at SRMIST. Passionate about
-            software engineering and gaining hands-on experience through certifications
-            and projects.
+            <ScrambledText 
+              duration={2}
+              speed={0.5}
+            >
+              Sophomore | !Not A Tech Enthusiast | Frontend Dev | Bugs Cracked, Ethics Intact |
+            </ScrambledText>
+            {/* <br /> */}
+            <ScrambledText 
+              duration={2}
+              speed={0.5}
+            >
+              Shaping AI Responsibly
+            </ScrambledText>
           </p>
 
           
