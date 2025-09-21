@@ -22,7 +22,8 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 - **Glass Morphism**: Modern glass effects and elegant transitions
 
 ### 🧭 Navigation & Sections
-- **Smooth Navigation**: Single-page application with smooth scrolling between sections
+- **Buttery Smooth Scrolling**: Powered by Lenis for premium scroll experience
+- **Single-Page Application**: Seamless navigation between sections
 - **Hero Section**: Dynamic introduction with call-to-action buttons
 - **About Me**: Personal introduction with skill highlights and resume download
 - **Experience**: Certifications, training, and education with interactive elements
@@ -33,6 +34,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 - **TypeScript**: Full type safety and better development experience
 - **Component Architecture**: Modular and reusable React components
 - **Theme System**: Context-based theme management with localStorage persistence
+- **Smooth Scrolling**: Lenis integration for buttery smooth scroll animations
 - **Form Handling**: Integrated contact form with Formspree
 - **Bold Text Support**: Markdown-style formatting in achievements and descriptions
 - **Certificate Links**: Direct links to verify certifications and credentials
@@ -48,6 +50,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 ### UI Components
 - **Radix UI** - Accessible, unstyled UI primitives
 - **Lucide React** - Beautiful and consistent icons
+- **Lenis** - Buttery smooth scroll animations
 - **Custom Components** - Reusable UI components library
 
 ### Build & Deploy

@@ -42,6 +42,8 @@ export const Footer = () => {
                 href={link.href}
                 aria-label={link.label}
                 className="relative p-3 rounded-full glass hover:shadow-glow dark:hover:shadow-primary/30 transition-all duration-300 group"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <div className="group-hover:scale-110 transition-transform text-foreground dark:text-foreground">
                   {link.icon}

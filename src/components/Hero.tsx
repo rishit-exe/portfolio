@@ -4,6 +4,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 import ElectricBorder from "@/animations/ElectricBorder";
 import ScrambledText from "@/animations/ScrambledText";
 import HoverWordScramble from "@/animations/HoverWordScramble";
+import { scrollToSection } from "@/lib/scroll-utils";
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -65,10 +66,7 @@ export const Hero = () => {
   variant="hero"
   size="xl"
   className="group"
-  onClick={() => {
-    const section = document.getElementById("experience");
-    if (section) section.scrollIntoView({ behavior: "smooth" });
-  }}
+  onClick={() => scrollToSection("experience")}
 >
   View My Work
   <ArrowDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
@@ -80,10 +78,7 @@ export const Hero = () => {
               variant="outline"
               size="xl"
               className="group glass hover:bg-primary/5 hover:text-primary border-primary/20 hover:border-primary/50 transition-all duration-300"
-              onClick={() => {
-                const section = document.getElementById("contact");
-                if (section) section.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={() => scrollToSection("contact")}
             >
               Get In Touch
             </Button>

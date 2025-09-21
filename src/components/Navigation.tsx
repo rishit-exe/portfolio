@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
+import { scrollToTop, scrollToSection } from "@/lib/scroll-utils";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,8 +24,8 @@ export const Navigation = () => {
     { href: "#contact", label: "Contact" },
   ];
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTopNav = () => {
+    scrollToTop();
   };
   const gotoHome = () => {
     window.location.href = "/portfolio/";
@@ -53,14 +54,14 @@ export const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.href}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-colors relative group"
+                onClick={() => scrollToSection(item.href.substring(1))}
+                className="text-foreground hover:text-primary transition-colors relative group bg-transparent border-none cursor-pointer"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
-              </a>
+              </button>
             ))}
             
             {/* Dark Mode Toggle */}
@@ -104,14 +105,16 @@ export const Navigation = () => {
           <div className="md:hidden absolute top-full left-0 right-0 glass dark:bg-card/80 border-t border-border/20 dark:border-border/10">
             <div className="flex flex-col space-y-4 p-6">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.href}
-                  href={item.href}
-                  className="text-foreground dark:text-foreground hover:text-primary dark:hover:text-primary transition-colors py-2"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    scrollToSection(item.href.substring(1));
+                    setIsMenuOpen(false);
+                  }}
+                  className="text-foreground dark:text-foreground hover:text-primary dark:hover:text-primary transition-colors py-2 text-left bg-transparent border-none cursor-pointer"
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
               
               {/* Dark Mode Toggle for Mobile */}
