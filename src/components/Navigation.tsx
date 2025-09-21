@@ -27,7 +27,7 @@ export const Navigation = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const gotoHome = () => {
-    window.location.href = "/";
+    window.location.href = "/portfolio/";
   }
 
   return (
