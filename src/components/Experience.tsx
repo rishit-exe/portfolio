@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CalendarDays, MapPin, Paperclip } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CalendarDays, MapPin, Paperclip, ExternalLink } from "lucide-react";
 
 // Use local assets for provider logos (relative to public folder for Vite/React)
 const providerLogos: Record<string, string> = {
@@ -27,9 +28,10 @@ export const Experience = () => {
       description: "Completed comprehensive programming foundations course covering JavaScript, HTML, and CSS fundamentals with hands-on projects and real-world applications.",
       technologies: ["JavaScript", "HTML5", "CSS3", "Web Development"],
       achievements: [
-        "Built multiple web development projects",
-        "Mastered front-end development fundamentals",
-        "Gained proficiency in responsive web design"
+        "Passed with **Honors**",
+        "Built **multiple web development projects**",
+        "Mastered **front-end development fundamentals**",
+        "Gained proficiency in **responsive web design**"
       ]
     },
     {
@@ -41,9 +43,9 @@ export const Experience = () => {
       description: "Completed NPTEL's Fundamentals of Object Oriented Programming course, covering core OOPS concepts and their practical applications.",
       technologies: ["OOPS", "Java", "Programming Fundamentals"],
       achievements: [
-        "Mastered object-oriented programming concepts",
-        "Applied OOPS principles in coding assignments",
-        "Earned NPTEL certification"
+        "**Scored** & Earned NPTEL certification: **84%**", 
+        "Mastered **object-oriented programming concepts**",
+        "Applied **OOPS principles** in coding assignments"
       ]
     },
     {
@@ -55,9 +57,9 @@ export const Experience = () => {
       description: "Completed a comprehensive software engineering job simulation focusing on agile methodologies, debugging techniques, and data analysis practices used in real-world enterprise environments.",
       technologies: ["Agile Methodologies", "Debugging Code", "Data Analysis"],
       achievements: [
-        "Learned industry-standard agile development practices",
+        "Learned **industry-standard agile development practices**",
         "Gained experience in systematic debugging approaches",
-        "Developed skills in data analysis and interpretation"
+        "Developed skills in **data analysis and interpretation**"
       ]
     },
     {
@@ -69,9 +71,9 @@ export const Experience = () => {
       description: "Achieved Oracle Cloud Infrastructure 2025 Certified Foundations Associate certification, demonstrating understanding of cloud computing fundamentals and Oracle's cloud services.",
       technologies: ["Oracle Cloud", "Cloud Infrastructure", "Cloud Computing"],
       achievements: [
-        "Mastered Oracle Cloud Infrastructure fundamentals",
-        "Understanding of cloud service models and deployment",
-        "Knowledge of security and compliance in cloud environments"
+        "Mastered **Oracle Cloud Infrastructure fundamentals**",
+        "Understanding of **cloud service models and deployment**",
+        "Knowledge of **security and compliance** in cloud environments"
       ]
     }
   ];
@@ -84,9 +86,10 @@ export const Experience = () => {
       period: "June 2024 - May 2028",
       description: "Currently pursuing BTech in Computer Science with focus on programming fundamentals, data structures, and software engineering principles. Active participant in coding competitions and technical workshops.",
       achievements: [
-        "CGPA: 9.34 (1st Year)",
-        "Proficient in MATLAB programming",
-        "Strong foundation in Computer Science fundamentals"
+        "**CGPA: 9.34** (1st Year) – Consistently high academic performance.",
+        "**Programming Skills**: Proficient in **C++ and Java**, with hands-on experience in building applications.",
+        "**Computer Science Foundation**: Strong understanding of key concepts such as **algorithms, data structures, and software development**.",
+        "**Problem Solving**: Demonstrated expertise in tackling complex problems through **coding competitions and projects**."
       ]
     },
     {
@@ -96,35 +99,42 @@ export const Experience = () => {
       period: "April 2007 - December 2023",
       description: "Completed high school education with specialization in Science stream, building strong analytical and problem-solving skills.",
       achievements: [
-        "Science stream specialization",
-        "Strong foundation in Mathematics and Physics",
-        "Developed analytical thinking skills"
+        "**Science stream** specialization",
+        "**Strong foundation in Mathematics and Physics**",
+        "Developed **analytical thinking skills**"
       ]
     }
   ];
 
   return (
-    <section id="experience" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="experience" className="py-20 px-6 dark:bg-background relative">
+      {/* Elegant Section Divider */}
+      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+        <div className="w-16 h-px bg-gradient-to-r from-transparent to-primary/60"></div>
+        <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+        <div className="w-16 h-px bg-gradient-to-l from-transparent to-primary/60"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto pt-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white">
             My <span className="text-gradient">Journey</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground dark:text-muted-foreground max-w-2xl mx-auto">
             A timeline of my professional experience and educational background
           </p>
         </div>
 
         {/* Experience Section */}
         <div className="mb-16">
-          <h3 className="text-3xl font-semibold mb-8 text-center">Certifications & Training</h3>
+          <h3 className="text-3xl font-semibold mb-8 text-center dark:text-white">Certifications & Training</h3>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <Card key={index} className="p-8 glass hover:shadow-elegant transition-all duration-300">
+              <Card key={index} className="p-8 glass hover:shadow-elegant dark:bg-card/50 dark:border-border/20 transition-all duration-300">
                 <div className="flex flex-col lg:flex-row lg:items-start gap-6">
                   <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                      <h4 className="text-xl font-semibold text-primary flex items-center gap-2">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
+                      <h4 className="text-xl font-semibold text-primary dark:text-primary flex items-center gap-2">
                         {/* Provider Logo */}
                         <span>
                           <img
@@ -134,50 +144,60 @@ export const Experience = () => {
                             style={{ background: "white", borderRadius: "4px", display: "inline-block" }}
                           />
                         </span>
-                        <a
-                          href={exp.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:underline text-blue-600 flex items-center gap-1"
-                        >
-                          {exp.title}
-                          <Paperclip className="w-4 h-4 text-gray-400" aria-label="Hyperlink attached" />
-                        </a>
+                        {exp.title}
                       </h4>
-                      <div className="flex items-center text-sm text-muted-foreground mt-2 sm:mt-0">
+                      
+                      <div className="flex items-center text-sm text-muted-foreground dark:text-muted-foreground mt-2 sm:mt-0">
                         <CalendarDays className="w-4 h-4 mr-1" />
                         {exp.period}
                       </div>
                     </div>
                     
-                    <div className="flex items-center text-foreground font-medium mb-2">
+                    <div className="flex items-center text-foreground dark:text-foreground font-medium mb-2">
                       {exp.company}
                     </div>
                     
-                    <div className="flex items-center text-muted-foreground mb-4">
+                    <div className="flex items-center text-muted-foreground dark:text-muted-foreground mb-4">
                       <MapPin className="w-4 h-4 mr-1" />
                       {exp.location}
                     </div>
                     
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                    <p className="text-muted-foreground dark:text-muted-foreground mb-6 leading-relaxed">
                       {exp.description}
                     </p>
                     
                     <div className="mb-6">
-                      <h5 className="font-semibold mb-3">Key Achievements:</h5>
-                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                      <h5 className="font-semibold dark:text-white mb-3">Key Achievements:</h5>
+                      <ul className="list-disc list-inside space-y-1 text-muted-foreground dark:text-muted-foreground">
                         {exp.achievements.map((achievement, i) => (
-                          <li key={i}>{achievement}</li>
+                          <li key={i} dangerouslySetInnerHTML={{
+                            __html: achievement
+                              .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                              .replace(/<strong>/g, '<strong class="font-semibold text-foreground dark:text-white">')
+                          }} />
                         ))}
                       </ul>
                     </div>
                     
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, i) => (
-                        <Badge key={i} variant="outline" className="border-primary/30">
-                          {tech}
-                        </Badge>
-                      ))}
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex flex-wrap gap-2">
+                        {exp.technologies.map((tech, i) => (
+                          <Badge key={i} variant="outline" className="border-primary/30">
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                      
+                      {/* View Certificate Button */}
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="group hover:bg-primary hover:text-primary-foreground transition-all duration-300 ml-auto"
+                        onClick={() => window.open(exp.link, "_blank")}
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                        View Certificate
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -188,14 +208,14 @@ export const Experience = () => {
 
         {/* Education Section */}
         <div>
-          <h3 className="text-3xl font-semibold mb-8 text-center">Education</h3>
+          <h3 className="text-3xl font-semibold mb-8 text-center dark:text-white">Education</h3>
           <div className="space-y-8">
             {education.map((edu, index) => (
-              <Card key={index} className="p-8 glass hover:shadow-elegant transition-all duration-300">
+              <Card key={index} className="p-8 glass hover:shadow-elegant dark:bg-card/50 dark:border-border/20 transition-all duration-300">
                 <div className="flex flex-col lg:flex-row lg:items-start gap-6">
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                      <h4 className="text-xl font-semibold text-primary flex items-center gap-2">
+                      <h4 className="text-xl font-semibold text-primary dark:text-primary flex items-center gap-2">
                         {/* Education Logo */}
                         <span>
                           <img
@@ -227,10 +247,14 @@ export const Experience = () => {
                     </p>
                     
                     <div>
-                      <h5 className="font-semibold mb-3">Highlights:</h5>
-                      <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                      <h5 className="font-semibold dark:text-white mb-3">Highlights:</h5>
+                      <ul className="list-disc list-inside space-y-1 text-muted-foreground dark:text-muted-foreground">
                         {edu.achievements.map((achievement, i) => (
-                          <li key={i}>{achievement}</li>
+                          <li key={i} dangerouslySetInnerHTML={{
+                            __html: achievement
+                              .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                              .replace(/<strong>/g, '<strong class="font-semibold text-foreground dark:text-white">')
+                          }} />
                         ))}
                       </ul>
                     </div>

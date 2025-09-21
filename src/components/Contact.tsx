@@ -76,13 +76,20 @@ export const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="py-20 px-6 dark:bg-background relative">
+      {/* Elegant Section Divider */}
+      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+        <div className="w-16 h-px bg-gradient-to-r from-transparent to-primary/60"></div>
+        <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+        <div className="w-16 h-px bg-gradient-to-l from-transparent to-primary/60"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto pt-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white">
             Get In <span className="text-gradient">Touch</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground dark:text-muted-foreground max-w-2xl mx-auto">
             Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
           </p>
         </div>
@@ -90,9 +97,9 @@ export const Contact = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-6">
-            <Card className="p-8 glass">
-              <h3 className="text-2xl font-semibold mb-6">Let's Connect</h3>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
+            <Card className="p-8 glass dark:bg-card/50 dark:border-border/20">
+              <h3 className="text-2xl font-semibold mb-6 dark:text-white">Let's Connect</h3>
+              <p className="text-muted-foreground dark:text-muted-foreground mb-8 leading-relaxed">
                 I'm always interested in new opportunities and exciting projects. 
                 Whether you have a question or just want to say hi, feel free to reach out!
               </p>
@@ -117,8 +124,8 @@ export const Contact = () => {
             </Card>
 
             <Card className="p-8 glass text-center">
-              <h4 className="text-xl font-semibold mb-4">Available for Work</h4>
-              <p className="text-muted-foreground mb-6">
+              <h4 className="text-xl font-semibold mb-4 dark:text-white">Available for Work</h4>
+              <p className="text-muted-foreground dark:text-muted-foreground mb-6">
                 I'm currently available for freelance projects and full-time opportunities.
               </p>
               <div className="w-3 h-3 bg-green-500 rounded-full mx-auto animate-pulse"></div>
@@ -127,17 +134,18 @@ export const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="p-8 glass">
+            <Card className="p-8 glass dark:bg-card/50 dark:border-border/20">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
+                    <Label htmlFor="name" className="dark:text-white">Name</Label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Your full name"
+                      className="dark:bg-input/50 dark:border-border/30 dark:text-white dark:placeholder-muted-foreground"
                       required
                     />
                   </div>

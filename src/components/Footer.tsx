@@ -25,13 +25,13 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-muted/30 border-t border-border/20">
+    <footer className="bg-muted/30 dark:bg-muted/20 border-t border-border/20 dark:border-border/10">
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Logo and Tagline */}
           <div className="text-center md:text-left">
             <div className="text-2xl font-bold text-gradient mb-2">Rishit Srivastava</div>
-            <p className="text-muted-foreground">Full Stack Developer</p>
+            <p className="text-muted-foreground dark:text-muted-foreground">Full Stack Developer</p>
           </div>
 
           {/* Social Links */}
@@ -41,16 +41,16 @@ export const Footer = () => {
                 key={index}
                 href={link.href}
                 aria-label={link.label}
-                className="relative p-3 rounded-full glass hover:shadow-glow transition-all duration-300 group"
+                className="relative p-3 rounded-full glass hover:shadow-glow dark:hover:shadow-primary/30 transition-all duration-300 group"
               >
-                <div className="group-hover:scale-110 transition-transform">
+                <div className="group-hover:scale-110 transition-transform text-foreground dark:text-foreground">
                   {link.icon}
                 </div>
-                          
+
                 {/* Tooltip */}
-                <span className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-sm px-2 py-1 rounded transition-all duration-300 whitespace-nowrap
+                <span className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-gray-800 dark:bg-gray-700 text-white text-sm px-2 py-1 rounded transition-all duration-300 whitespace-nowrap
                   after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 
-                  after:border-4 after:border-transparent after:border-t-gray-800">
+                  after:border-4 after:border-transparent after:border-t-gray-800 dark:after:border-t-gray-700">
                   {link.label}
                 </span>
               </a>

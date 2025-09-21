@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +32,7 @@ export const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "glass shadow-card" : "bg-background/80 backdrop-blur-sm"
+      isScrolled ? "glass shadow-card dark:bg-card/80 dark:shadow-card" : "bg-background/80 dark:bg-background/80 backdrop-blur-sm"
     }`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -40,7 +42,7 @@ export const Navigation = () => {
   className="flex items-center text-2xl font-bold text-gradient hover:scale-105 transition-transform"
 >
   <img
-    src="favicon-black.ico"
+    src={ theme === 'dark' ? "favicon.ico" : "favicon-black.ico"}
     alt="Logo"
     className="w-8 h-8 rounded-full align-middle"
     style={{ marginRight: 0, padding: 0 }}
@@ -60,6 +62,23 @@ export const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
               </a>
             ))}
+            
+            {/* Dark Mode Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="relative overflow-hidden group"
+              aria-label="Toggle dark mode"
+            >
+              <Sun className={`w-5 h-5 transition-all duration-300 ${
+                theme === 'dark' ? 'rotate-90 scale-0' : 'rotate-0 scale-100'
+              }`} />
+              <Moon className={`absolute w-5 h-5 transition-all duration-300 ${
+                theme === 'dark' ? 'rotate-0 scale-100' : '-rotate-90 scale-0'
+              }`} />
+            </Button>
+            
             <Button 
               variant="hero" 
               size="sm"
@@ -82,18 +101,35 @@ export const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 glass border-t border-border/20">
+          <div className="md:hidden absolute top-full left-0 right-0 glass dark:bg-card/80 border-t border-border/20 dark:border-border/10">
             <div className="flex flex-col space-y-4 p-6">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-foreground hover:text-primary transition-colors py-2"
+                  className="text-foreground dark:text-foreground hover:text-primary dark:hover:text-primary transition-colors py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
+              
+              {/* Dark Mode Toggle for Mobile */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                className="relative overflow-hidden group w-fit"
+                aria-label="Toggle dark mode"
+              >
+                <Sun className={`w-5 h-5 transition-all duration-300 ${
+                  theme === 'dark' ? 'rotate-90 scale-0' : 'rotate-0 scale-100'
+                }`} />
+                <Moon className={`absolute w-5 h-5 transition-all duration-300 ${
+                  theme === 'dark' ? 'rotate-0 scale-100' : '-rotate-90 scale-0'
+                }`} />
+              </Button>
+              
               <Button 
                 variant="hero" 
                 size="sm" 
