@@ -1,6 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Lightbulb, Users, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Code, Lightbulb, Users, Zap, Download, ExternalLink } from "lucide-react";
+import ElectricBorder from "@/animations/ElectricBorder";
+import SpotlightCard from '@/animations/SpotlightCard';
 
 export const About = () => {
   const highlights = [
@@ -60,16 +63,59 @@ export const About = () => {
               in software engineering, cloud computing, and web development. I'm passionate about 
               building efficient solutions and contributing to the tech community.
             </p>
+            
+            {/* Resume Download Button */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+              <Button
+                variant="hero"
+                size="lg"
+                className="group hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+                onClick={() => {
+                  // Direct PDF download from Google Docs
+                  const downloadLink = document.createElement('a');
+                  downloadLink.href = "https://docs.google.com/document/d/1cqi21jkT2nCvOub5c-dBm0Rz88wxYF56/export?format=pdf";
+                  downloadLink.download = "Rishit_Srivastava_Resume.pdf";
+                  document.body.appendChild(downloadLink);
+                  downloadLink.click();
+                  document.body.removeChild(downloadLink);
+                }}
+              >
+                <Download className="w-4 h-4 mr-2 group-hover:translate-y-1 transition-transform" />
+                Download Resume
+              </Button>
+              
+              <Button
+                variant="outline"
+                size="lg"
+                className="group glass hover:bg-primary/5 hover:text-primary border-primary/20 hover:border-primary/50 transition-all duration-300"
+                onClick={() => {
+                  // View online in Google Docs
+                  window.open("https://docs.google.com/document/d/1cqi21jkT2nCvOub5c-dBm0Rz88wxYF56/edit?usp=sharing&ouid=109758229832825043732&rtpof=true&sd=true", "_blank");
+                }}
+              >
+                <ExternalLink className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" />
+                View Online
+              </Button>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             {highlights.map((highlight, index) => (
-              <Card key={index} className="p-6 glass hover:shadow-card transition-all duration-300">
-                <div className="text-primary mb-3">{highlight.icon}</div>
-                <h4 className="font-semibold mb-2">{highlight.title}</h4>
-                <p className="text-sm text-muted-foreground">{highlight.description}</p>
-              </Card>
+              // <Card key={index} className="p-6 glass hover:shadow-card transition-all duration-300">
+              //   <div className="text-primary mb-3">{highlight.icon}</div>
+              //   <h4 className="font-semibold mb-2">{highlight.title}</h4>
+              //   <p className="text-sm text-muted-foreground">{highlight.description}</p>
+              // </Card>
+<SpotlightCard
+  backgroundColor="#eef7f4"
+  spotlightColor="rgba(16, 185, 129, 0.35)"    // emerald
+>
+  <div className="text-primary mb-3">{highlight.icon}</div>
+  <h4 className="font-semibold mb-2">{highlight.title}</h4>
+  <p className="text-sm text-muted-foreground">{highlight.description}</p>
+</SpotlightCard>
             ))}
+
           </div>
         </div>
 

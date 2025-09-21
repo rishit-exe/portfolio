@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Instagram, Heart } from "lucide-react";
 
 export const Footer = () => {
   const socialLinks = [
@@ -10,6 +10,11 @@ export const Footer = () => {
     {
       icon: <Linkedin className="w-5 h-5" />,
       href: "https://www.linkedin.com/in/the-rishit-srivastava/",
+      label: "LinkedIn"
+    },
+    {
+      icon: <Instagram className="w-5 h-5" />,
+      href: "https://www.instagram.com/rishit._.srivastava/",
       label: "LinkedIn"
     },
     {
@@ -36,12 +41,20 @@ export const Footer = () => {
                 key={index}
                 href={link.href}
                 aria-label={link.label}
-                className="p-3 rounded-full glass hover:shadow-glow transition-all duration-300 group"
+                className="relative p-3 rounded-full glass hover:shadow-glow transition-all duration-300 group"
               >
                 <div className="group-hover:scale-110 transition-transform">
                   {link.icon}
                 </div>
+                          
+                {/* Tooltip */}
+                <span className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-sm px-2 py-1 rounded transition-all duration-300 whitespace-nowrap
+                  after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 
+                  after:border-4 after:border-transparent after:border-t-gray-800">
+                  {link.label}
+                </span>
               </a>
+
             ))}
           </div>
 

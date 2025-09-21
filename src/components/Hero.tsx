@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Instagram } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-
+import ElectricBorder from "@/animations/ElectricBorder";
+import ScrambledText from "@/animations/ScrambledText";
+import HoverWordScramble from "@/animations/HoverWordScramble";
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -24,17 +26,25 @@ export const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
         <div className="animate-fade-in-up">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-            Hi, I'm{" "}
-            <span className="text-gradient">Rishit</span>
-          </h1>
+
+<h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
+  <HoverWordScramble duration={1} speed={1.5} scrambleChars=".:">
+    {"Hi, I'm "}
+    <span className="text-gradient">Rishit</span>
+  </HoverWordScramble>
+</h1>
+
+ 
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Computer Science Student & Software Developer
           </p>
+
           <p className="text-lg md:text-xl text-muted-foreground/80 mb-12 max-w-3xl mx-auto">
-            Currently pursuing BTech in Computer Science at SRMIST. 
-            Passionate about software engineering and gaining hands-on experience through certifications and projects.
+            Currently pursuing BTech in Computer Science at SRMIST. Passionate about
+            software engineering and gaining hands-on experience through certifications
+            and projects.
           </p>
+
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             {/* <Button variant="hero" size="xl" className="group">
@@ -57,27 +67,68 @@ export const Hero = () => {
               Get In Touch
             </Button> */}
             <Button
-  variant="glass"
-  size="xl"
-  onClick={() => {
-    const section = document.getElementById("contact");
-    if (section) section.scrollIntoView({ behavior: "smooth" });
-  }}
->
-  Get In Touch
-</Button>
+              variant="outline"
+              size="xl"
+              className="group glass hover:bg-primary/5 hover:text-primary border-primary/20 hover:border-primary/50 transition-all duration-300"
+              onClick={() => {
+                const section = document.getElementById("contact");
+                if (section) section.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Get In Touch
+            </Button>
           </div>
 
           <div className="flex gap-6 justify-center">
-            <a href="https://github.com/rishit-exe" target="_blank" rel="noopener noreferrer" className="p-4 glass rounded-full hover:shadow-glow transition-all duration-300 group">
-              <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
+            {/* GitHub */}
+            <a
+              href="https://github.com/rishit-exe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative p-4 glass rounded-full hover:shadow-glow transition-all duration-300 group"
+            >
+                <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
+
+                {/* Tooltip */}
+                <span className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-sm px-2 py-1 rounded transition-all duration-300 whitespace-nowrap
+                  after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 
+                  after:border-4 after:border-transparent after:border-t-gray-800">
+                  GitHub
+                </span>
             </a>
-            <a href="https://www.linkedin.com/in/the-rishit-srivastava/" target="_blank" rel="noopener noreferrer" className="p-4 glass rounded-full hover:shadow-glow transition-all duration-300 group">
-              <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
+
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/in/the-rishit-srivastava/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative p-4 glass rounded-full hover:shadow-glow transition-all duration-300 group"
+            >
+                <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
+
+                {/* Tooltip */}
+                <span className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-sm px-2 py-1 rounded transition-all duration-300 whitespace-nowrap
+                  after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 
+                  after:border-4 after:border-transparent after:border-t-gray-800">
+                  LinkedIn
+                </span>
             </a>
-            <a href="mailto:rishit.vns05@gmail.com" className="p-4 glass rounded-full hover:shadow-glow transition-all duration-300 group">
-              <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
+            <a
+              href="https://instagram.com/rishit._.srivastava"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative p-4 glass rounded-full hover:shadow-glow transition-all duration-300 group"
+            >
+                <Instagram className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                        
+                {/* Tooltip */}
+                <span className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-sm px-2 py-1 rounded transition-opacity duration-300 whitespace-nowrap
+                  after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 
+                  after:border-4 after:border-transparent after:border-t-gray-800">
+                  Instagram
+                </span>
             </a>
+
           </div>
         </div>
       </div>

@@ -24,6 +24,9 @@ export const Navigation = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  const gotoHome = () => {
+    window.location.href = "/";
+  }
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -33,7 +36,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
 <button 
-  onClick={scrollToTop}
+  onClick={gotoHome}
   className="flex items-center text-2xl font-bold text-gradient hover:scale-105 transition-transform"
 >
   <img
@@ -57,8 +60,12 @@ export const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
               </a>
             ))}
-            <Button variant="hero" size="sm">
-              <a href="#contact">Hire Me</a>
+            <Button 
+              variant="hero" 
+              size="sm"
+              onClick={() => window.open("https://www.linkedin.com/in/the-rishit-srivastava", "_blank")}
+            >
+              Hire Me
             </Button>
           </div>
 
@@ -87,8 +94,13 @@ export const Navigation = () => {
                   {item.label}
                 </a>
               ))}
-              <Button variant="hero" size="sm" className="w-fit">
-                <a href="#contact">Hire Me</a>
+              <Button 
+                variant="hero" 
+                size="sm" 
+                className="w-fit"
+                onClick={() => window.open("https://www.linkedin.com/in/the-rishit-srivastava", "_blank")}
+              >
+                Hire Me
               </Button>
             </div>
           </div>
