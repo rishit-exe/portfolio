@@ -1,0 +1,35 @@
+[
+  {
+    "title": "ByteCraft - Modern Blog Platform",
+    "description": "A modern blog platform built with Next.js 14, featuring custom Google OAuth 2.0 authentication, PostgreSQL database, and a beautiful user interface. Users can create, edit, and delete posts, like and comment on posts, and view their activity in a personalized dashboard.",
+    "image": "ByteCraft-Project.png",
+    "logo": "ByteCraft-Project.png",
+    "technologies": ["Next.js", "PostgreSQL", "Google Auth 2.0", "Vercel", "Node.js"],
+    "liveUrl": "https://thebytecraft.vercel.app/",
+    "githubUrl": "https://github.com/rishit-exe/ByteCraft-Blog",
+    "featured": true,
+    "highlights": [
+      "Fully CRUD functionality for blog posts",
+      "Integrated Google OAuth 2.0 authentication",
+      "PostgreSQL database integration",
+      "Mobile-responsive design"
+    ]
+  },
+  {
+    "title": "PopOS Clone",
+    "description": "A frontend clone of the Pop!_OS website by System76, built with HTML, CSS, and JavaScript. This project demonstrates modern web development practices and responsive design.",
+    "image": "PopOS-Project.png",
+    "logo": "PopOS-Project.png",
+    "technologies": ["HTML5", "CSS3", "JavaScript", "Font Awesome", "Google Fonts"],
+    "liveUrl": "https://mypopos.vercel.app/",
+    "githubUrl": "https://github.com/rishit-exe/PopOS-Clone",
+    "featured": true,
+    "highlights": [
+      "Responsive Design",
+      "Modern UI/UX",
+      "Interactive Elements",
+      "Accessibility",
+      "Performance Optimized"
+    ]
+  }
+]

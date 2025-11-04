@@ -2,6 +2,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CalendarDays, MapPin, Paperclip, ExternalLink } from "lucide-react";
+import certificationsRaw from "@/data/certifications.json";
+import educationsRaw from "@/data/education.json";
+import { parseCertifications, parseEducations, Certification, Education } from "@/data/experienceSchema";
 
 // Use local assets for provider logos
 const providerLogos: Record<string, string> = {
@@ -17,94 +20,9 @@ const educationLogos: Record<string, string> = {
 };
 
 export const Experience = () => {
-  // Certifications & Training
-  const experiences = [
-    {
-      title: "Programming Foundations with JavaScript, HTML and CSS",
-      link: "https://www.coursera.org/verify/EA7ZNWKRKQE6",
-      company: "Coursera",
-      location: "Online Course",
-      period: "March 2025",
-      description: "Completed comprehensive programming foundations course covering JavaScript, HTML, and CSS fundamentals with hands-on projects and real-world applications.",
-      technologies: ["JavaScript", "HTML5", "CSS3", "Web Development"],
-      achievements: [
-        "Passed with **Honors**",
-        "Built **multiple web development projects**",
-        "Mastered **front-end development fundamentals**",
-        "Gained proficiency in **responsive web design**"
-      ]
-    },
-    {
-      title: "Fundamentals of OOPS",
-      link: "https://nptel.ac.in/noc/E_Certificate/NPTEL25CS34S64320498804310976",
-      company: "NPTEL",
-      location: "Online Certification",
-      period: "April 2025",
-      description: "Completed NPTEL's Fundamentals of Object Oriented Programming course, covering core OOPS concepts and their practical applications.",
-      technologies: ["OOPS", "Java", "Programming Fundamentals"],
-      achievements: [
-        "**Scored** & Earned NPTEL certification: **84%**", 
-        "Mastered **object-oriented programming concepts**",
-        "Applied **OOPS principles** in coding assignments"
-      ]
-    },
-    {
-      title: "Software Engineering Job Simulation",
-      link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/xhih9yFWsf6AYfngd/HNpZwZcuYwona2d8Y_xhih9yFWsf6AYfngd_6YQp48h8Ray6ddgu4_1748442579399_completion_certificate.pdf",
-      company: "Accenture Nordics",
-      location: "Virtual Program",
-      period: "May 2025",
-      description: "Completed a comprehensive software engineering job simulation focusing on agile methodologies, debugging techniques, and data analysis practices used in real-world enterprise environments.",
-      technologies: ["Agile Methodologies", "Debugging Code", "Data Analysis"],
-      achievements: [
-        "Learned **industry-standard agile development practices**",
-        "Gained experience in systematic debugging approaches",
-        "Developed skills in **data analysis and interpretation**"
-      ]
-    },
-    {
-      title: "Oracle Cloud Infrastructure Foundations (OCI)",
-      link: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=90E444943AD952D5EB39755A6CE0DE3B1519004E33CB1C627EAAC473BC3C95E5",
-      company: "Oracle",
-      location: "Online Certification",
-      period: "March 2025",
-      description: "Achieved Oracle Cloud Infrastructure 2025 Certified Foundations Associate certification, demonstrating understanding of cloud computing fundamentals and Oracle's cloud services.",
-      technologies: ["Oracle Cloud", "Cloud Infrastructure", "Cloud Computing"],
-      achievements: [
-        "Mastered **Oracle Cloud Infrastructure fundamentals**",
-        "Understanding of **cloud service models and deployment**",
-        "Knowledge of **security and compliance** in cloud environments"
-      ]
-    }
-  ];
-
-  const education = [
-    {
-      degree: "Bachelor of Technology - Computer Science",
-      institution: "SRM Institute of Science and Technology (SRMIST)",
-      location: "Tamil Nadu, India",
-      period: "June 2024 - May 2028",
-      description: "Currently pursuing BTech in Computer Science with focus on programming fundamentals, data structures, and software engineering principles. Active participant in coding competitions and technical workshops.",
-      achievements: [
-        "**CGPA: 9.34** (1st Year) – Consistently high academic performance.",
-        "**Programming Skills**: Proficient in **C++ and Java**, with hands-on experience in building applications.",
-        "**Computer Science Foundation**: Strong understanding of key concepts such as **algorithms, data structures, and software development**.",
-        "**Problem Solving**: Demonstrated expertise in tackling complex problems through **coding competitions and projects**."
-      ]
-    },
-    {
-      degree: "High School Diploma - Science",
-      institution: "Sunbeam English School Bhagwanpur",
-      location: "Bhagwanpur, India", 
-      period: "April 2007 - December 2023",
-      description: "Completed high school education with specialization in Science stream, building strong analytical and problem-solving skills.",
-      achievements: [
-        "**Science stream** specialization",
-        "**Strong foundation in Mathematics and Physics**",
-        "Developed **analytical thinking skills**"
-      ]
-    }
-  ];
+  // Strict validation: parse functions will throw on invalid JSON so CI/tests/build fail fast
+  const experiences: Certification[] = parseCertifications(certificationsRaw);
+  const education: Education[] = parseEducations(educationsRaw);
 
   return (
     <section id="experience" className="py-20 px-6 dark:bg-background relative">
@@ -136,9 +54,9 @@ export const Experience = () => {
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
                       <h4 className="text-xl font-semibold text-primary dark:text-primary flex items-center gap-2">
                         {/* Provider Logo */}
-                        <span className={`mr-2 ${exp.company === 'Coursera' ? 'w-15 h-15 sm:w-12 sm:h-12' : 'w-12 h-12'} rounded-md overflow-hidden flex items-center justify-center bg-transparent`}>
+                        <span className={`mr-2 ${exp.logoSize ?? 'w-12 h-12'} rounded-md overflow-hidden flex items-center justify-center bg-transparent`}>
                           <img
-                            src={providerLogos[exp.company] || ""}
+                            src={exp.logo ?? providerLogos[exp.company] ?? ""}
                             alt={`${exp.company} logo`}
                             className="w-full h-full object-contain object-center"
                           />
@@ -216,9 +134,9 @@ export const Experience = () => {
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                       <h4 className="text-xl font-semibold text-primary dark:text-primary flex items-center gap-2">
                         {/* Education Logo */}
-                        <span className="mr-2 w-12 h-12 rounded-md overflow-hidden flex items-center justify-center bg-transparent">
+                        <span className={`mr-2 ${edu.logoSize ?? 'w-12 h-12'} rounded-md overflow-hidden flex items-center justify-center bg-transparent`}>
                           <img
-                            src={educationLogos[edu.institution] || ""}
+                            src={edu.logo ?? educationLogos[edu.institution] ?? ""}
                             alt={`${edu.institution} logo`}
                             className="w-full h-full object-contain object-center"
                           />

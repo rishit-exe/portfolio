@@ -2,104 +2,14 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github } from "lucide-react";
+import projectsRaw from "@/data/projects.json";
+import { parseProjects, Project } from "@/data/projectsSchema";
 
 const bShow = false;
 
 export const Projects = () => {
-  const projects = [
-    {
-      title: "ByteCraft - Modern Blog Platform",
-      description: "A modern blog platform built with Next.js 14, featuring custom Google OAuth 2.0 authentication, PostgreSQL database, and a beautiful user interface. Users can create, edit, and delete posts, like and comment on posts, and view their activity in a personalized dashboard.",
-      image: "ByteCraft-Project.png",
-      technologies: ["Next.js", "PostgreSQL", "Google Auth 2.0", "Vercel", "Node.js"],
-      liveUrl: "https://thebytecraft.vercel.app/",
-      githubUrl: "https://github.com/rishit-exe/ByteCraft-Blog",
-      featured: true,
-      highlights: [
-        "Fully CRUD functionality for blog posts",
-        "Integrated Google OAuth 2.0 authentication",
-        "PostgreSQL database integration",
-        "Mobile-responsive design"
-      ]
-    },
-    {
-      title: "PopOS Clone",
-      description: "A frontend clone of the Pop!_OS website by System76, built with HTML, CSS, and JavaScript. This project demonstrates modern web development practices and responsive design.",
-      image: "PopOS-Project.png ",
-      technologies: ["HTML5", "CSS3", "JavaScript ", "Font Awesome", "Google Fonts"],
-      liveUrl: "https://mypopos.vercel.app/",
-      githubUrl: "https://github.com/rishit-exe/PopOS-Clone",
-      featured: true,
-      highlights: [
-        "Responsive Design",
-        "Modern UI/UX",
-        "Interactive Elements",
-        "Accessibility",
-        "Performance Optimized"
-      ]
-    }
-    // ,
-    // {
-    //   title: "Weather Analytics Dashboard",
-    //   description: "A comprehensive weather analytics platform that visualizes climate data with interactive charts and provides detailed weather forecasting.",
-    //   image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=800&q=80",
-    //   technologies: ["Vue.js", "D3.js", "Python", "Flask", "PostgreSQL"],
-    //   liveUrl: "#",
-    //   githubUrl: "#",
-    //   featured: false,
-    //   highlights: [
-    //     "Interactive data visualization",
-    //     "7-day weather forecasting",
-    //     "Historical data analysis",
-    //     "API integration"
-    //   ]
-    // },
-    // {
-    //   title: "Social Media Analytics",
-    //   description: "An analytics tool for social media managers to track engagement, analyze trends, and generate comprehensive reports across multiple platforms.",
-    //   image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    //   technologies: ["Angular", "Node.js", "Express", "Chart.js", "Redis"],
-    //   liveUrl: "#",
-    //   githubUrl: "#",
-    //   featured: false,
-    //   highlights: [
-    //     "Multi-platform integration",
-    //     "Automated report generation",
-    //     "Trend analysis algorithms",
-    //     "Custom dashboard creation"
-    //   ]
-    // },
-    // {
-    //   title: "Learning Management System",
-    //   description: "A modern LMS platform for educational institutions with course management, student progress tracking, and interactive learning modules.",
-    //   image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-    //   technologies: ["React", "GraphQL", "Node.js", "MongoDB", "WebRTC"],
-    //   liveUrl: "#",
-    //   githubUrl: "#",
-    //   featured: false,
-    //   highlights: [
-    //     "Video conferencing integration",
-    //     "Progress tracking system",
-    //     "Interactive quizzes",
-    //     "Certificate generation"
-    //   ]
-    // },
-    // {
-    //   title: "IoT Device Monitor",
-    //   description: "A real-time monitoring system for IoT devices with data visualization, alert management, and predictive maintenance capabilities.",
-    //   image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=800&q=80",
-    //   technologies: ["React", "Python", "MQTT", "InfluxDB", "Grafana"],
-    //   liveUrl: "#",
-    //   githubUrl: "#",
-    //   featured: false,
-    //   highlights: [
-    //     "Real-time data streaming",
-    //     "Predictive maintenance alerts",
-    //     "Custom dashboard widgets",
-    //     "Historical data analysis"
-    //   ]
-    // }
-  ];
+  // Strict validation: throw on invalid JSON so build/tests fail fast
+  const projects: Project[] = parseProjects(projectsRaw);
 
   const featuredProjects = projects.filter(project => project.featured);
   const otherProjects = projects.filter(project => !project.featured);
@@ -123,7 +33,7 @@ export const Projects = () => {
               <Card key={index} className="overflow-hidden glass hover:shadow-elegant transition-all duration-500 group">
                 <div className="aspect-video overflow-hidden">
                   <img 
-                    src={project.image} 
+                    src={project.logo ?? project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />

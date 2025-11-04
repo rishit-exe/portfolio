@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Programming Foundations with JavaScript, HTML and CSS",
+    "link": "https://www.coursera.org/verify/EA7ZNWKRKQE6",
+    "company": "Coursera",
+    "location": "Online Course",
+    "period": "March 2025",
+    "description": "Completed comprehensive programming foundations course covering JavaScript, HTML, and CSS fundamentals with hands-on projects and real-world applications.",
+  "logo": "coursera_logo.jpeg",
+  "logoSize": "w-15 h-15 sm:w-12 sm:h-12",
+    "technologies": ["JavaScript", "HTML5", "CSS3", "Web Development"],
+    "achievements": [
+      "Passed with **Honors**",
+      "Built **multiple web development projects**",
+      "Mastered **front-end development fundamentals**",
+      "Gained proficiency in **responsive web design**"
+    ]
+  },
+  {
+    "title": "Fundamentals of OOPS",
+    "link": "https://nptel.ac.in/noc/E_Certificate/NPTEL25CS34S64320498804310976",
+    "company": "NPTEL",
+    "location": "Online Certification",
+    "period": "April 2025",
+    "description": "Completed NPTEL's Fundamentals of Object Oriented Programming course, covering core OOPS concepts and their practical applications.",
+  "logo": "nptel.jpeg",
+  "logoSize": "w-12 h-12",
+    "technologies": ["OOPS", "Java", "Programming Fundamentals"],
+    "achievements": [
+      "**Scored** & Earned NPTEL certification: **84%**",
+      "Mastered **object-oriented programming concepts**",
+      "Applied **OOPS principles** in coding assignments"
+    ]
+  },
+  {
+    "title": "Software Engineering Job Simulation",
+    "link": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/xhih9yFWsf6AYfngd/HNpZwZcuYwona2d8Y_xhih9yFWsf6AYfngd_6YQp48h8Ray6ddgu4_1748442579399_completion_certificate.pdf",
+    "company": "Accenture Nordics",
+    "location": "Virtual Program",
+    "period": "May 2025",
+    "description": "Completed a comprehensive software engineering job simulation focusing on agile methodologies, debugging techniques, and data analysis practices used in real-world enterprise environments.",
+  "logo": "forage.jpeg",
+  "logoSize": "w-12 h-12",
+    "technologies": ["Agile Methodologies", "Debugging Code", "Data Analysis"],
+    "achievements": [
+      "Learned **industry-standard agile development practices**",
+      "Gained experience in systematic debugging approaches",
+      "Developed skills in **data analysis and interpretation**"
+    ]
+  },
+  {
+    "title": "Oracle Cloud Infrastructure Foundations (OCI)",
+    "link": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=90E444943AD952D5EB39755A6CE0DE3B1519004E33CB1C627EAAC473BC3C95E5",
+    "company": "Oracle",
+    "location": "Online Certification",
+    "period": "March 2025",
+    "description": "Achieved Oracle Cloud Infrastructure 2025 Certified Foundations Associate certification, demonstrating understanding of cloud computing fundamentals and Oracle's cloud services.",
+  "logo": "oracle_logo.jpeg",
+  "logoSize": "w-12 h-12",
+    "technologies": ["Oracle Cloud", "Cloud Infrastructure", "Cloud Computing"],
+    "achievements": [
+      "Mastered **Oracle Cloud Infrastructure fundamentals**",
+      "Understanding of **cloud service models and deployment**",
+      "Knowledge of **security and compliance** in cloud environments"
+    ]
+  }
+]
