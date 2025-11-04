@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -8,6 +8,8 @@ export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const toggleRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,35 @@ export const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as Node | null;
+      // Ignore clicks on the toggle button itself
+      if (toggleRef.current && target && toggleRef.current.contains(target)) {
+        return;
+      }
+      if (menuRef.current && target && !menuRef.current.contains(target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMenuOpen(false);
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMenuOpen]);
 
   const navItems = [
     { href: "#about", label: "About" },
@@ -94,7 +125,8 @@ export const Navigation = () => {
             variant="ghost"
             size="icon"
             className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            ref={toggleRef}
+            onClick={() => setIsMenuOpen((prev) => !prev)}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>
@@ -103,7 +135,7 @@ export const Navigation = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 glass dark:bg-card/80 border-t border-border/20 dark:border-border/10">
-            <div className="flex flex-col space-y-4 p-6">
+            <div ref={menuRef} className="flex flex-col items-center space-y-4 p-6 text-center">
               {navItems.map((item) => (
                 <button
                   key={item.href}
@@ -111,7 +143,7 @@ export const Navigation = () => {
                     scrollToSection(item.href.substring(1));
                     setIsMenuOpen(false);
                   }}
-                  className="text-foreground dark:text-foreground hover:text-primary dark:hover:text-primary transition-colors py-2 text-left bg-transparent border-none cursor-pointer"
+                  className="text-foreground dark:text-foreground hover:text-primary dark:hover:text-primary transition-colors py-2 bg-transparent border-none cursor-pointer"
                 >
                   {item.label}
                 </button>
@@ -122,7 +154,7 @@ export const Navigation = () => {
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="relative overflow-hidden group w-fit"
+                className="relative overflow-hidden group rounded-full"
                 aria-label="Toggle dark mode"
               >
                 <Sun className={`w-5 h-5 transition-all duration-300 ${
