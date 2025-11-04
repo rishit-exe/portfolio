@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CalendarDays, MapPin, Paperclip, ExternalLink } from "lucide-react";
 
-// Use local assets for provider logos (relative to public folder for Vite/React)
+// Use local assets for provider logos
 const providerLogos: Record<string, string> = {
   Coursera: "coursera_logo.jpeg",
   NPTEL: "nptel.jpeg",
@@ -17,7 +17,7 @@ const educationLogos: Record<string, string> = {
 };
 
 export const Experience = () => {
-  // Certifications & Training (ordered as requested)
+  // Certifications & Training
   const experiences = [
     {
       title: "Programming Foundations with JavaScript, HTML and CSS",
@@ -136,12 +136,11 @@ export const Experience = () => {
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
                       <h4 className="text-xl font-semibold text-primary dark:text-primary flex items-center gap-2">
                         {/* Provider Logo */}
-                        <span>
+                        <span className={`mr-2 ${exp.company === 'Coursera' ? 'w-15 h-15 sm:w-12 sm:h-12' : 'w-12 h-12'} rounded-md overflow-hidden flex items-center justify-center bg-transparent`}>
                           <img
                             src={providerLogos[exp.company] || ""}
                             alt={`${exp.company} logo`}
-                            className="w-12 h-12 object-contain mr-2"
-                            style={{ background: "white", borderRadius: "4px", display: "inline-block" }}
+                            className="w-full h-full object-contain object-center"
                           />
                         </span>
                         {exp.title}
@@ -217,12 +216,11 @@ export const Experience = () => {
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                       <h4 className="text-xl font-semibold text-primary dark:text-primary flex items-center gap-2">
                         {/* Education Logo */}
-                        <span>
+                        <span className="mr-2 w-12 h-12 rounded-md overflow-hidden flex items-center justify-center bg-transparent">
                           <img
                             src={educationLogos[edu.institution] || ""}
                             alt={`${edu.institution} logo`}
-                            className="w-12 h-12 object-contain mr-2"
-                            style={{ background: "white", borderRadius: "4px", display: "inline-block" }}
+                            className="w-full h-full object-contain object-center"
                           />
                         </span>
                         {edu.degree}
