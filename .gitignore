@@ -15,6 +15,9 @@ AutoDeploy.bat
 /build
 dist/
 
+#lock files
+package-lock.json
+
 # misc
 .DS_Store
 .env.local
