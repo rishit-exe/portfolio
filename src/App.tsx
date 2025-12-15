@@ -15,7 +15,8 @@ const AppContent = () => {
   useLenis();
 
   return (
-    <BrowserRouter basename="/portfolio/">
+    // <BrowserRouter basename="/portfolio/">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
